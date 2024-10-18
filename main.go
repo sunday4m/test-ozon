@@ -7,6 +7,11 @@ import (
 
 func main() {
 	td := service.NewTestData()
-	td.GeneratePhones(100)
-	fmt.Println(len(td.Phones))
+	totalPhones := 100
+	service.Generate(totalPhones, td)
+
+	fmt.Printf("Сгенерировано %d номеров телефонов.\n", len(td.Phones))
+	for phone := range td.Phones {
+		fmt.Println(phone)
+	}
 }
